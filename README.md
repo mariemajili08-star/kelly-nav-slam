@@ -113,3 +113,13 @@ ros2 launch kelly_nav kelly_monitor_launch.py apply_to_nav2:=false
 - Nav2 (`controller_server` avec plugin MPPI, costmap local avec
   `inflation_layer`)
 - `rclpy`, `sensor_msgs`, `nav_msgs`, `std_msgs`, `rcl_interfaces`
+
+## 8. Fichiers additionnels
+
+- `scripts/start_all_tmux.sh` : script de lancement automatisé de la
+  chaîne complète (Gazebo, bridges ROS 2, Nav2, RViz2, kelly_nav) via
+  tmux, utilisé pour les tests et démonstrations.
+- `config/nav2_params.yaml` : configuration Nav2 utilisée (costmaps,
+  contrôleur MPPI, planificateur).
+- `config/mapper_params_online_async.yaml` : configuration de
+  `slam_toolbox` (mode localisation avec extension de carte).
