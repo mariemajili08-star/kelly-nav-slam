@@ -7,14 +7,15 @@ calcule une fraction de Kelly f* (adaptee de la formule de dimensionnement de
 mise de John Kelly, 1956) et l'utilise pour moduler dynamiquement :
   - la vitesse max envoyee au controller_server de Nav2 (MPPI)
   - le rayon d'inflation (distance de securite) du costmap local
-
-Formule de Kelly classique :   f* = p - (1 - p) / b
-    p = probabilite estimee de "trajectoire sure" (analogue a la proba de
-        gagner le pari)
-    b = "cote" = gain relatif espere (aller plus vite) / cout relatif d'une
-        collision. Parametre reglable (kelly_b).
-    f* = fraction du capital a miser -> ici, fraction de la vitesse max
+Formule de Kelly generalisee :   f* = p/L - q/G   (avec q = 1 - p)
+    p = probabilite estimee de "trajectoire sure"
+    q = 1 - p = probabilite d'echec
+    L = fraction perdue en cas d'echec (ici L=1, perte totale supposee)
+    G = fraction gagnee en cas de succes (parametre reglable kelly_b)
+    f* = fraction du capital a engager -> ici, fraction de la vitesse max
          nominale que le robot est autorise a utiliser.
+    Avec L=1, la formule se simplifie en f* = p - q/G, forme utilisee
+    dans l'implementation ci-dessous.
 
 p est lui-meme estime a partir de deux indicateurs de risque issus du LiDAR
 et de la vitesse courante :
