@@ -367,7 +367,7 @@ pointillés.*
 *(nœuds/topics principaux identifiés : `/scan`, `/odom`, `/tf`, `/map`,
 `/cmd_vel`, `/global_costmap/costmap`, `/local_costmap/costmap`,
 `controller_server`, `planner_server`, `bt_navigator`, `map_server`,
-`amcl` / `slam_toolbox` — liste complète à détailler en annexe si besoin)*
+`amcl` / `slam_toolbox` — liste complète détailler en annexe )*
 
 ### 5.2 Phase 2 — Intégration du critère de Kelly
 
