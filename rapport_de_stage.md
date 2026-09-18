@@ -491,7 +491,7 @@ objectifs du sujet — reste une interprétation parmi d'autres possibles.
 D'autres formulations pourraient être envisagées, notamment en intégrant
 plusieurs sources de risque simultanément (incertitude de localisation,
 densité d'obstacles, vitesse relative d'obstacles dynamiques) ou en
-calibrant le paramètre de cote `b` à partir de données réelles plutôt que
+calibrant les paramètres L et G à partir de données réelles plutôt que
 d'un choix arbitraire.
 
 La limite principale de l'approche réside dans la sensibilité du
