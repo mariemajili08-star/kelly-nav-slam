@@ -22,8 +22,8 @@
 
 Je tiens à remercier AUTRIS SAS pour l'opportunité qui m'a été donnée
 d'effectuer ce stage à distance sur un sujet à la croisée de la finance
-quantitative, de l'intelligence artificielle et de la robotique. Je
-remercie tout particulièrement mon encadrant, M. Walid Ben Ayed, pour son
+quantitative, de l'intelligence artificielle et de la robotique.
+Je remercie tout particulièrement mon encadrant, M. Walid Ben Ayed, pour son
 suivi régulier, sa disponibilité et ses conseils techniques tout au long
 de ces huit semaines, malgré la distance. Je remercie également le corps
 enseignant de l'ENETCOM pour la formation qui m'a permis d'aborder ce
