@@ -4,14 +4,17 @@
 
 ---
 
-**Établissement :** ENETCOM (École Nationale d'Électronique et des Télécommunications de Sfax)
+**Établissement :** École Nationale d'Électronique et des Télécommunications de Sfax (ENETCOM)
+
 **Filière :** Génie Télécommunication — 2ᵉ année (année universitaire 2026/2027)
 
 **Entreprise d'accueil :** AUTRIS SAS
 81 Rue de Silly, 92100 Boulogne-Billancourt, France
+
 (stage réalisé en distanciel depuis Sfax, avec réunions en présentiel ponctuelles)
 
 **Encadrant de stage :** Walid Ben Ayed — walid.benayed@autris.fr
+
 **Stagiaire :** Mariem Ajili
 
 **Période du stage :** 10 juillet – 31 août 2026
@@ -67,37 +70,7 @@ gestion du risque, robotique mobile.
 
 ---
 
-## Abstract
 
-This internship, carried out at AUTRIS SAS, addresses the application of
-the Kelly criterion — a principle from financial mathematics used for
-optimal bet/investment sizing — to the autonomous navigation of a mobile
-robot.
-
-The goal is to let a robot dynamically adapt its behavior (speed,
-safety distance) based on an estimated risk level derived from its sensor
-data, rather than following a fixed navigation policy.
-
-The work was carried out in two phases.
-
-The first consisted of setting up
-a classic autonomous navigation pipeline, combining Simultaneous
-Localization and Mapping (SLAM, via `slam_toolbox`) and path planning
-(Nav2), under ROS 2 Jazzy and Gazebo Harmonic.
-
-The second phase focused on
-integrating a risk-adaptive management module inspired by the Kelly
-criterion, dynamically adjusting the robot's maximum speed and safety
-distance through Nav2's dynamic parameter reconfiguration.
-
-A comparison between classic and risk-adaptive navigation made it possible
-to assess the value of this approach for the safety of autonomous
-navigation.
-
-**Keywords:** ROS 2, SLAM, Nav2, autonomous navigation, Kelly criterion,
-risk management, mobile robotics.
-
----
 
 ## Sommaire
 
