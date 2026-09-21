@@ -23,11 +23,13 @@
 Je tiens à remercier AUTRIS SAS pour l'opportunité qui m'a été donnée
 d'effectuer ce stage à distance sur un sujet à la croisée de la finance
 quantitative, de l'intelligence artificielle et de la robotique.
+
 Je remercie tout particulièrement mon encadrant, M. Walid Ben Ayed, pour son
 suivi régulier, sa disponibilité et ses conseils techniques tout au long
-de ces huit semaines, malgré la distance. Je remercie également le corps
-enseignant de l'ENETCOM pour la formation qui m'a permis d'aborder ce
-projet dans de bonnes conditions.
+de ces huit semaines, malgré la distance.
+
+Je remercie également le corps enseignant de l'ENETCOM pour la formation
+qui m'a permis d'aborder ce projet dans de bonnes conditions.
 
 ---
 
@@ -36,15 +38,21 @@ projet dans de bonnes conditions.
 Ce stage, réalisé au sein d'AUTRIS SAS, porte sur l'application du critère
 de Kelly — un principe issu des mathématiques financières utilisé pour le
 dimensionnement optimal d'une mise en pari ou en investissement — à la
-navigation autonome d'un robot mobile. L'objectif est de permettre à un
+navigation autonome d'un robot mobile.
+
+L'objectif est de permettre à un
 robot d'adapter dynamiquement son comportement (vitesse, distance de
 sécurité) en fonction d'un niveau de risque estimé à partir de ses données
 de perception, plutôt que de suivre une politique de navigation figée.
 
-Le travail s'est déroulé en deux phases. La première a consisté à mettre en
+Le travail s'est déroulé en deux phases.
+
+La première a consisté à mettre en
 place une chaîne de navigation autonome classique, combinant cartographie
 simultanée et localisation (SLAM, via `slam_toolbox`) et planification de
-trajectoire (Nav2), sous ROS 2 Jazzy et Gazebo Harmonic. La seconde phase a
+trajectoire (Nav2), sous ROS 2 Jazzy et Gazebo Harmonic.
+
+La seconde phase a
 porté sur l'intégration d'un module de gestion adaptative du risque inspiré
 du critère de Kelly, modulant en temps réel la vitesse maximale et la
 distance de sécurité du robot via la reconfiguration dynamique des
@@ -64,14 +72,20 @@ gestion du risque, robotique mobile.
 This internship, carried out at AUTRIS SAS, addresses the application of
 the Kelly criterion — a principle from financial mathematics used for
 optimal bet/investment sizing — to the autonomous navigation of a mobile
-robot. The goal is to let a robot dynamically adapt its behavior (speed,
+robot.
+
+The goal is to let a robot dynamically adapt its behavior (speed,
 safety distance) based on an estimated risk level derived from its sensor
 data, rather than following a fixed navigation policy.
 
-The work was carried out in two phases. The first consisted of setting up
+The work was carried out in two phases.
+
+The first consisted of setting up
 a classic autonomous navigation pipeline, combining Simultaneous
 Localization and Mapping (SLAM, via `slam_toolbox`) and path planning
-(Nav2), under ROS 2 Jazzy and Gazebo Harmonic. The second phase focused on
+(Nav2), under ROS 2 Jazzy and Gazebo Harmonic.
+
+The second phase focused on
 integrating a risk-adaptive management module inspired by the Kelly
 criterion, dynamically adjusting the robot's maximum speed and safety
 distance through Nav2's dynamic parameter reconfiguration.
@@ -107,7 +121,9 @@ risk management, mobile robotics.
 Dans le cadre de ma formation en Génie Télécommunication à l'ENETCOM, j'ai
 effectué un stage au sein d'AUTRIS SAS, entreprise d'ingénierie spécialisée
 dans les systèmes industriels, l'automatisation et la robotique
-intelligente. Ce stage, d'une durée de huit semaines (10 juillet au 31 août
+intelligente.
+
+Ce stage, d'une durée de huit semaines (10 juillet au 31 août
 2026), s'est déroulé en distanciel depuis Sfax, avec des réunions de suivi
 en présentiel.
 
@@ -133,7 +149,9 @@ classique et navigation risque-adaptative.
 
 AUTRIS SAS est une société française d'ingénierie spécialisée dans la
 conception, le développement et l'intégration de solutions technologiques
-destinées aux secteurs industriels. L'entreprise intervient principalement
+destinées aux secteurs industriels.
+
+L'entreprise intervient principalement
 dans les domaines de l'automatisation industrielle, de l'instrumentation,
 des systèmes de contrôle-commande, de l'informatique industrielle, des
 systèmes embarqués, de la robotique et de l'intelligence artificielle
@@ -173,7 +191,9 @@ complémentaires de l'ingénierie et des technologies avancées :
 
 AUTRIS accorde une place importante aux activités de R&D, avec pour
 objectif d'intégrer les technologies émergentes aux problématiques
-industrielles et aux systèmes autonomes. Les travaux portent notamment sur
+industrielles et aux systèmes autonomes.
+
+Les travaux portent notamment sur
 l'automatisation avancée, les systèmes intelligents, la robotique mobile
 autonome, la perception multi-capteurs, la vision par ordinateur, la
 fusion de données, le SLAM, la navigation intelligente, l'intelligence
@@ -211,7 +231,9 @@ C'est dans ce dernier axe de R&D que s'inscrit le présent stage.
 Le critère de Kelly a été formulé par John L. Kelly Jr. (Bell Labs, 1956)
 pour déterminer la fraction optimale d'un capital à engager dans un pari
 ou un investissement répété, de manière à maximiser la croissance
-logarithmique du capital sur le long terme tout en évitant la ruine. Dans
+logarithmique du capital sur le long terme tout en évitant la ruine.
+
+Dans
 sa forme généralisée, la formule s'écrit :
 
 ```
@@ -221,7 +243,9 @@ f* = p/L - q/G
 où `p` est la probabilité de succès, `q = 1 - p` la probabilité d'échec,
 `L` la fraction du capital perdue en cas d'échec, `G` la fraction du
 capital gagnée en cas de succès, et `f*` la fraction optimale du capital à
-engager. (Le cas particulier `L = 1`, c'est-à-dire une perte totale du
+engager.
+
+(Le cas particulier `L = 1`, c'est-à-dire une perte totale du
 capital engagé en cas d'échec, redonne la forme la plus couramment citée
 `f* = p - q/G`.)
 
@@ -238,14 +262,17 @@ Il n'existe pas, à notre connaissance, de formalisation standard d'un
 "critère de Kelly" propre à la robotique dans la littérature ; il s'agit
 donc d'un choix de modélisation propre à ce travail, détaillé en section
 5.2, qu'il conviendra de situer par rapport aux approches existantes de
-navigation prenant en compte l'incertitude (voir section 9).
+navigation prenant en compte l'incertitude (voir la bibliographie,
+section 9, sous-section "Navigation robotique sensible au risque").
 
 ### 3.3 SLAM et navigation autonome (Nav2)
 
 La cartographie et localisation simultanées (SLAM — *Simultaneous
 Localization and Mapping*) permettent à un robot de construire une carte
 de son environnement tout en s'y localisant, sans connaissance préalable
-de cet environnement. Le package `slam_toolbox`, utilisé dans ce projet,
+de cet environnement.
+
+Le package `slam_toolbox`, utilisé dans ce projet,
 implémente cette fonctionnalité sous ROS 2.
 
 La pile de navigation Nav2 (Navigation2) fournit les briques nécessaires à
@@ -280,7 +307,9 @@ sécurité) et orchestration via un arbre de comportement (*behavior tree*).
 #### 5.1.1 Mise en place de l'environnement de simulation
 
 La mise en place de l'environnement de simulation a représenté une part
-importante et imprévue du travail. Plusieurs plateformes robotiques ont été
+importante et imprévue du travail.
+
+Plusieurs plateformes robotiques ont été
 successivement testées avant d'aboutir à une configuration stable :
 
 - **TurtleBot4** (sous ROS 2 Jazzy) : abandonné après une semaine
@@ -330,10 +359,12 @@ topics ROS 2 via `ros_gz_bridge` (clock, cmd_vel, tf, scan), qui
 alimentent en parallèle la localisation (`map_server`/`amcl` ou
 `slam_toolbox`), la planification (costmap + planner) et la gestion du
 comportement (`bt_navigator`, behavior server) ; RViz2 permet la
-visualisation et l'envoi d'objectifs. En Phase 2, le nœud `kelly_monitor_node`
+visualisation et l'envoi d'objectifs.*
+
+*En Phase 2, le nœud `kelly_monitor_node`
 (non représenté ici) s'intercale en lecture sur `/scan` et `/odom`, et agit
 sur le bloc Planification via reconfiguration dynamique des paramètres
-(vitesse max, rayon d'inflation).
+(vitesse max, rayon d'inflation).*
 
 #### 5.1.3 Difficultés techniques rencontrées et résolues
 
@@ -364,10 +395,7 @@ pointillés.*
 - Test d'évitement d'obstacles réussi (contournement d'une étagère).
 - Vidéo de démonstration enregistrée.
 
-*(nœuds/topics principaux identifiés : `/scan`, `/odom`, `/tf`, `/map`,
-`/cmd_vel`, `/global_costmap/costmap`, `/local_costmap/costmap`,
-`controller_server`, `planner_server`, `bt_navigator`, `map_server`,
-`amcl` / `slam_toolbox` — liste complète détailler en annexe )*
+*(liste complète des nœuds et topics détaillée en Annexe B)*
 
 ### 5.2 Phase 2 — Intégration du critère de Kelly
 
@@ -439,21 +467,28 @@ en place en Phase 1 :
 ### 6.1 Protocole de comparaison
 
 La comparaison entre navigation classique (Nav2 seul) et navigation
-risque-adaptative (Nav2 + `kelly_nav`) a été réalisée sur un même scénario
-de test (entrepôt simulé, mêmes obstacles, même objectif de navigation),
-selon les indicateurs suivants :
+risque-adaptative (Nav2 + `kelly_nav`) a été envisagée sur un même
+scénario de test (entrepôt simulé, mêmes obstacles, même objectif de
+navigation), selon les indicateurs suivants :
 
 - temps total pour atteindre l'objectif ;
 - distance minimale observée aux obstacles au cours de la trajectoire ;
 - comportement du robot à l'approche d'un obstacle (ralentissement,
   augmentation de la distance de sécurité).
 
+Faute de temps en fin de stage, ce protocole n'a pas été appliqué sous
+une forme chronométrée et systématique ; les résultats présentés en 6.2
+reposent sur une observation directe et qualitative du comportement du
+robot et des topics de diagnostic pendant les tests.
+
 ### 6.2 Résultats observés
 
 La navigation risque-adaptative a été testée avec des seuils ajustés
 (`d_safe = 3.0 m`, `ttc_safe = 6.0 s`, `kelly_b = 0.6`) permettant
 d'observer un ralentissement net et une augmentation de la distance de
-sécurité à l'approche d'obstacles. Ce comportement a été confirmé par le
+sécurité à l'approche d'obstacles.
+
+Ce comportement a été confirmé par le
 suivi en direct des topics `/kelly/min_distance` et `/kelly/applied_vmax` :
 lors des premiers tests (seuils par défaut), une réduction de la vitesse
 appliquée d'environ 12 % (de 0.5 à ~0.44 m/s) a été mesurée à l'approche
@@ -479,7 +514,7 @@ observée en Figure 3, confirmant le fonctionnement de la reconfiguration
 dynamique du critère de Kelly.*
 
 Vidéo de démonstration (navigation avec critère de Kelly actif, seuils
-ajustés) : `screenshots/simulation_kelly_c.mp4`
+ajustés) : [screenshots/simulation_kelly_c.mp4](screenshots/simulation_kelly_c.mp4)
 
 ---
 
@@ -488,10 +523,11 @@ ajustés) : `screenshots/simulation_kelly_c.mp4`
 Le choix de modélisation retenu pour adapter le critère de Kelly à la
 navigation — bien que cohérent avec la formule originale et avec les
 objectifs du sujet — reste une interprétation parmi d'autres possibles.
+
 D'autres formulations pourraient être envisagées, notamment en intégrant
 plusieurs sources de risque simultanément (incertitude de localisation,
 densité d'obstacles, vitesse relative d'obstacles dynamiques) ou en
-calibrant les paramètres L et G à partir de données réelles plutôt que
+calibrant les paramètres `L` et `G` à partir de données réelles plutôt que
 d'un choix arbitraire.
 
 La limite principale de l'approche réside dans la sensibilité du
@@ -606,32 +642,59 @@ transférabilité de l'approche au-delà de la simulation.
   `ros2 node list` / `ros2 topic list` pendant les tests) :
 
   **Nœuds principaux**
-  - `controller_server`, `planner_server`, `bt_navigator`,
-    `behavior_server`, `smoother_server`, `velocity_smoother` (pile Nav2,
-    hébergés dans un conteneur de composants)
-  - `map_server` (Phase 1, carte statique) / `sync_slam_toolbox_node`
-    (Phase 2, mode localisation avec extension de carte)
+  - `controller_server`
+  - `planner_server`
+  - `bt_navigator`
+  - `behavior_server`
+  - `smoother_server`
+  - `velocity_smoother` (pile Nav2, hébergés dans un conteneur de composants)
+  - `map_server` (Phase 1, carte statique)
+  - `sync_slam_toolbox_node` (Phase 2, mode localisation avec extension de
+    carte)
   - `amcl` (Phase 1) — remplacé en Phase 2 par la localisation intégrée
     de `slam_toolbox`
-  - `local_costmap`, `global_costmap`
+  - `local_costmap`
+  - `global_costmap`
   - `kelly_monitor_node` (Phase 2, package `kelly_nav`)
   - `rviz2`
 
   **Topics principaux**
-  - Perception / état : `/scan`, `/odom`, `/tf`, `/tf_static`, `/clock`
-  - Cartographie et localisation : `/map`, `/map_metadata`,
-    `/map_updates`, `/pose`, `/initialpose`
-  - Navigation : `/cmd_vel`, `/goal_pose`, `/plan` (via `planner_server`),
-    `/global_costmap/costmap`, `/local_costmap/costmap` (et topics
-    associés `_raw`, `_updates`, `_raw_updates`)
-  - Diagnostic / système : `/diagnostics`, `/rosout`, `/parameter_events`,
-    `/bond`
-  - Phase 2 (module `kelly_nav`) : `/kelly/p_safe`, `/kelly/fraction`,
-    `/kelly/ttc`, `/kelly/min_distance`, `/kelly/applied_vmax`,
-    `/kelly/applied_inflation`
-  - SLAM (Phase 2) : `/slam_toolbox/feedback`,
-    `/slam_toolbox/graph_visualization`, `/slam_toolbox/scan_visualization`,
-    `/slam_toolbox/update`
+  - Perception / état :
+    - `/scan`
+    - `/odom`
+    - `/tf`
+    - `/tf_static`
+    - `/clock`
+  - Cartographie et localisation :
+    - `/map`
+    - `/map_metadata`
+    - `/map_updates`
+    - `/pose`
+    - `/initialpose`
+  - Navigation :
+    - `/cmd_vel`
+    - `/goal_pose`
+    - `/plan` (via `planner_server`)
+    - `/global_costmap/costmap`
+    - `/local_costmap/costmap` (et topics associés `_raw`, `_updates`,
+      `_raw_updates`)
+  - Diagnostic / système :
+    - `/diagnostics`
+    - `/rosout`
+    - `/parameter_events`
+    - `/bond`
+  - Phase 2 (module `kelly_nav`) :
+    - `/kelly/p_safe`
+    - `/kelly/fraction`
+    - `/kelly/ttc`
+    - `/kelly/min_distance`
+    - `/kelly/applied_vmax`
+    - `/kelly/applied_inflation`
+  - SLAM (Phase 2) :
+    - `/slam_toolbox/feedback`
+    - `/slam_toolbox/graph_visualization`
+    - `/slam_toolbox/scan_visualization`
+    - `/slam_toolbox/update`
 
 - Annexe C — Captures d'écran RViz / Gazebo supplémentaires — voir le
   dossier `screenshots/` du dépôt GitHub (Annexe A).
